@@ -5,8 +5,17 @@
     @if (menuItems$ | async; as menuItems) {
       @if (menuItems.length > 0) {
         <div class="menu-grid">
-          @for (item of menuItems; track item.name) {
-            <article class="menu-card">
+          @for (
+            item of menuItems | filterMenu: searchService.searchTerm();
+            track item._id || item.id || item.name
+          ) {
+            <article
+              class="menu-card"
+              (click)="navigateToItem(item)"
+              role="button"
+              tabindex="0"
+              (keydown.enter)="navigateToItem(item)"
+            >
               <img class="menu-card__image" [src]="item.imageUrl" [alt]="item.name" />
               <div class="menu-card__content">
                 <div class="menu-card__header">

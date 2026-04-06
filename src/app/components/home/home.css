@@ -28,6 +28,19 @@
   border-radius: 0.9rem;
   background: #fff;
   box-shadow: 0 8px 22px rgb(2 6 23 / 8%);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.menu-card:hover {
+  border-color: #fb923c;
+  box-shadow: 0 12px 28px rgb(2 6 23 / 16%);
+  transform: translateY(-4px);
+}
+
+.menu-card:focus-visible {
+  outline: 2px solid #ea580c;
+  outline-offset: 2px;
 }
 
 .menu-card__image {

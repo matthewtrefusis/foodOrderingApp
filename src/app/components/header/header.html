@@ -4,7 +4,12 @@
 
     <nav class="header-nav" aria-label="Main navigation">
       <a routerLink="/" class="header-nav-link">Home</a>
-      <a routerLink="/cart-page" class="header-nav-link">Cart</a>
+      <a routerLink="/cart" class="header-nav-link">
+        Cart
+        @if (cartService.totalItems() > 0) {
+          <span class="cart-badge">{{ cartService.totalItems() }}</span>
+        }
+      </a>
     </nav>
 
     <div class="header-user-section">
@@ -13,9 +18,30 @@
         type="search"
         placeholder="Search food..."
         aria-label="Search menu"
+        [value]="searchService.searchTerm()"
+        (input)="searchService.setSearchTerm($any($event.target).value)"
       />
-      <button class="header-button header-button-secondary" type="button">Login</button>
-      <button class="header-button header-button-primary" type="button">Sign up</button>
+      @if (!authService.isAuthenticated()) {
+        <button
+          class="header-button header-button-secondary"
+          type="button"
+          (click)="navigateToLogin()"
+        >
+          Login
+        </button>
+        <button
+          class="header-button header-button-primary"
+          type="button"
+          (click)="navigateToSignup()"
+        >
+          Sign up
+        </button>
+      } @else {
+        <span class="header-user-info">Welcome, {{ authService.currentUser()?.name }}</span>
+        <button class="header-button header-button-secondary" type="button" (click)="logout()">
+          Logout
+        </button>
+      }
       <button class="header-mobile-menu header-button header-button-secondary" type="button">
         Menu
       </button>

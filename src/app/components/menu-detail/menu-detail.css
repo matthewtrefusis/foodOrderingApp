@@ -1,0 +1,194 @@
+.detail-page {
+  min-height: calc(100vh - 72px);
+  background: linear-gradient(180deg, #fffaf5 0%, #fff 45%, #f8fafc 100%);
+  padding: 2rem 1rem;
+}
+
+.detail-page__container {
+  margin: 0 auto;
+  max-width: 700px;
+}
+
+.detail-page__back {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1.5rem;
+  background: transparent;
+  border: 1px solid #fed7aa;
+  border-radius: 0.5rem;
+  color: #9a3412;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detail-page__back:hover {
+  background: #fef3c7;
+  border-color: #fb923c;
+}
+
+.detail-page__error {
+  margin: 2rem 0;
+  color: #6b7280;
+  text-align: center;
+  font-size: 1.125rem;
+}
+
+.detail-card {
+  overflow: hidden;
+  border: 1px solid #fed7aa;
+  border-radius: 0.9rem;
+  background: #fff;
+  box-shadow: 0 12px 28px rgb(2 6 23 / 12%);
+}
+
+.detail-card__image {
+  display: block;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.detail-card__content {
+  padding: 2rem 1.5rem;
+}
+
+.detail-card__title {
+  margin: 0 0 0.5rem;
+  color: #111827;
+  font-size: 2rem;
+  font-weight: 800;
+}
+
+.detail-card__category {
+  margin: 0.35rem 0 1rem;
+  color: #6b7280;
+  font-size: 0.95rem;
+  text-transform: capitalize;
+}
+
+.detail-card__description {
+  margin: 0 0 1.5rem;
+  color: #374151;
+  line-height: 1.6;
+  font-size: 1rem;
+}
+
+.detail-card__pricing {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.detail-card__price-label {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.detail-card__price {
+  margin: 0;
+  color: #c2410c;
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.detail-card__quantity {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 1.5rem 0;
+}
+
+.detail-card__quantity-label {
+  display: block;
+  color: #111827;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.quantity-btn {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.4rem;
+  background: #f3f4f6;
+  color: #111827;
+  font-size: 1.25rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.quantity-btn:hover {
+  background: #e5e7eb;
+  border-color: #9ca3af;
+}
+
+.quantity-input {
+  width: 3.5rem;
+  padding: 0.5rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.4rem;
+  background: #f9fafb;
+  color: #111827;
+  text-align: center;
+  font-weight: 600;
+}
+
+.detail-card__total {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin: 1.5rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid #e5e7eb;
+}
+
+.detail-card__total-label {
+  margin: 0;
+  color: #6b7280;
+  font-size: 0.95rem;
+}
+
+.detail-card__total-price {
+  margin: 0;
+  color: #1f2937;
+  font-size: 1.75rem;
+  font-weight: 800;
+}
+
+.detail-card__add-btn {
+  width: 100%;
+  padding: 0.875rem;
+  margin-top: 1.5rem;
+  background: #ea580c;
+  border: none;
+  border-radius: 0.5rem;
+  color: #fff;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.detail-card__add-btn:hover {
+  background: #c2410c;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgb(234 88 12 / 30%);
+}
+
+.detail-card__add-btn:active {
+  transform: translateY(0);
+}

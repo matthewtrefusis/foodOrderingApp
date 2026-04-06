@@ -1,0 +1,88 @@
+<section class="cart-page">
+  <div class="cart-page__container">
+    <h1 class="cart-page__title">Shopping Cart</h1>
+
+    @if (cartItems().length > 0) {
+      <div class="cart-content">
+        <div class="cart-items">
+          @for (item of cartItems(); track item._id || item.id) {
+            <article class="cart-item">
+              <img class="cart-item__image" [src]="item.imageUrl" [alt]="item.name" />
+
+              <div class="cart-item__details">
+                <h3 class="cart-item__name">{{ item.name }}</h3>
+                <p class="cart-item__category">{{ item.category }}</p>
+                <p class="cart-item__price">{{ item.price | currency }}</p>
+              </div>
+
+              <div class="cart-item__quantity">
+                <button
+                  (click)="decrementQuantity(item._id || item.id || '', item.quantity)"
+                  class="quantity-btn quantity-btn--minus"
+                  type="button"
+                  aria-label="Decrease quantity"
+                >
+                  −
+                </button>
+                <span class="quantity-value">{{ item.quantity }}</span>
+                <button
+                  (click)="incrementQuantity(item._id || item.id || '', item.quantity)"
+                  class="quantity-btn quantity-btn--plus"
+                  type="button"
+                  aria-label="Increase quantity"
+                >
+                  +
+                </button>
+              </div>
+
+              <p class="cart-item__subtotal">
+                {{ item.price * item.quantity | currency }}
+              </p>
+
+              <button
+                (click)="removeItem(item._id || item.id || '')"
+                class="cart-item__remove"
+                type="button"
+                aria-label="Remove item from cart"
+              >
+                Remove
+              </button>
+            </article>
+          }
+        </div>
+
+        <aside class="cart-summary">
+          <div class="summary-card">
+            <h2 class="summary-card__title">Order Summary</h2>
+
+            <div class="summary-row">
+              <span class="summary-label">Items:</span>
+              <span class="summary-value">{{ cartItems().length }}</span>
+            </div>
+
+            <div class="summary-row summary-row--total">
+              <span class="summary-label summary-label--total">Total:</span>
+              <span class="summary-value summary-value--total">{{ totalPrice() | currency }}</span>
+            </div>
+
+            <button (click)="checkout()" class="checkout-btn" type="button">
+              Proceed to Checkout
+            </button>
+
+            <button (click)="continueShopping()" class="continue-shopping-btn" type="button">
+              Continue Shopping
+            </button>
+          </div>
+        </aside>
+      </div>
+    } @else {
+      <div class="cart-empty">
+        <p class="cart-empty__message">Your cart is empty</p>
+        <p class="cart-empty__subtext">Add items from the menu to get started</p>
+        <button (click)="continueShopping()" class="empty-cart__btn" type="button">
+          Browse Menu
+        </button>
+      </div>
+    }
+  </div>
+</section>

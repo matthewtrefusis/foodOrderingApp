@@ -1,0 +1,68 @@
+<section class="detail-page">
+  @if (menuItem$ | async; as item) {
+    @if (item) {
+      <div class="detail-page__container">
+        <button (click)="goBack()" class="detail-page__back">← Back to Menu</button>
+
+        <article class="detail-card">
+          <img class="detail-card__image" [src]="item.imageUrl" [alt]="item.name" />
+
+          <div class="detail-card__content">
+            <h1 class="detail-card__title">{{ item.name }}</h1>
+            <p class="detail-card__category">{{ item.category }}</p>
+            <p class="detail-card__description">{{ item.description }}</p>
+
+            <div class="detail-card__pricing">
+              <p class="detail-card__price-label">Price (each):</p>
+              <p class="detail-card__price">{{ item.price | currency }}</p>
+            </div>
+
+            <div class="detail-card__quantity">
+              <label for="quantity" class="detail-card__quantity-label">Quantity:</label>
+              <div class="quantity-controls">
+                <button
+                  (click)="decrementQuantity()"
+                  class="quantity-btn quantity-btn--minus"
+                  type="button"
+                  aria-label="Decrease quantity"
+                >
+                  −
+                </button>
+                <input
+                  id="quantity"
+                  class="quantity-input"
+                  type="number"
+                  [value]="quantity()"
+                  readonly
+                  aria-label="Quantity of items"
+                />
+                <button
+                  (click)="incrementQuantity()"
+                  class="quantity-btn quantity-btn--plus"
+                  type="button"
+                  aria-label="Increase quantity"
+                >
+                  +
+                </button>
+              </div>
+            </div>
+
+            <div class="detail-card__total">
+              <p class="detail-card__total-label">Total:</p>
+              <p class="detail-card__total-price">{{ item.price * quantity() | currency }}</p>
+            </div>
+
+            <button (click)="addToCart()" class="detail-card__add-btn" type="button">
+              Add to Cart
+            </button>
+          </div>
+        </article>
+      </div>
+    } @else {
+      <div class="detail-page__container">
+        <p class="detail-page__error">Item not found.</p>
+        <button (click)="goBack()" class="detail-page__back">← Back to Menu</button>
+      </div>
+    }
+  }
+</section>
