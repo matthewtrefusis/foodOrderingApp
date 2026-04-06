@@ -1,3 +1,49 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'tailwindcss';
+
+@layer components {
+  .header {
+    @apply bg-white shadow-md sticky top-0 z-50;
+  }
+
+  .header-container {
+    @apply max-w-7xl mx-auto px-4 py-4 flex items-center justify-between;
+  }
+
+  .header-logo {
+    @apply text-2xl font-bold text-orange-600 cursor-pointer;
+  }
+
+  .header-nav {
+    @apply hidden md:flex gap-8 items-center;
+  }
+
+  .header-nav-link {
+    @apply text-gray-700 hover:text-orange-600 font-medium transition-colors cursor-pointer;
+  }
+
+  .header-user-section {
+    @apply flex items-center gap-4;
+  }
+
+  .header-search {
+    @apply px-4 py-2 bg-gray-100 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-orange-600;
+  }
+
+  .header-button {
+    @apply px-4 py-2 rounded-lg font-medium transition-colors cursor-pointer;
+  }
+
+  .header-button-primary {
+    @apply bg-orange-600 text-white hover:bg-orange-700;
+  }
+
+  .header-button-secondary {
+    @apply bg-gray-200 text-gray-700 hover:bg-gray-300;
+  }
+
+  .header-mobile-menu {
+    @apply md:hidden;
+  }
+}
